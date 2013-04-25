@@ -44,8 +44,8 @@
 #include <freerdp/codec/color.h>
 
 #include <guacamole/client.h>
+#include <guacamole/audio.h>
 
-#include "audio.h"
 #include "rdp_keymap.h"
 
 /**

@@ -45,8 +45,8 @@
 #include <freerdp/utils/svc_plugin.h>
 
 #include <guacamole/client.h>
+#include <guacamole/audio.h>
 
-#include "audio.h"
 #include "service.h"
 #include "messages.h"
 
