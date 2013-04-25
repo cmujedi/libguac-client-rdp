@@ -43,8 +43,6 @@ lib_LTLIBRARIES = libguac-client-rdp.la
 freerdp_LTLIBRARIES = guac_rdpsnd.la
 
 libguac_client_rdp_la_SOURCES = \
-    $(OGG_SOURCES)         \
-	src/audio.c            \
 	src/client.c           \
 	src/default_pointer.c  \
 	src/guac_handlers.c    \
@@ -55,19 +53,15 @@ libguac_client_rdp_la_SOURCES = \
 	src/rdp_keymap_base.c  \
 	src/rdp_keymap.c       \
 	src/rdp_keymap_en_us.c \
-	src/rdp_pointer.c      \
-	src/wav_encoder.c
+	src/rdp_pointer.c 
 
 guac_rdpsnd_la_SOURCES =   \
 	guac_rdpsnd/messages.c \
-	guac_rdpsnd/service.c  \
-	src/audio.c
+	guac_rdpsnd/service.c
 
 noinst_HEADERS =              \
-    $(OGG_HEADERS)            \
 	guac_rdpsnd/messages.h    \
 	guac_rdpsnd/service.h     \
-	include/audio.h           \
 	include/client.h          \
 	include/config.h          \
 	include/default_pointer.h \
@@ -77,15 +71,7 @@ noinst_HEADERS =              \
 	include/rdp_gdi.h         \
 	include/rdp_glyph.h       \
 	include/rdp_keymap.h      \
-	include/rdp_pointer.h     \
-	include/wav_encoder.h
-
-# Compile OGG support if available
-if ENABLE_OGG
-    libguac_client_rdp_la_SOURCES += src/ogg_encoder.c
-    noinst_HEADERS += include/ogg_encoder.h
-endif
-
+	include/rdp_pointer.h     
 
 libguac_client_rdp_la_LDFLAGS = -version-info 0:0:0
 guac_rdpsnd_la_LDFLAGS = -module -avoid-version -shared
@@ -93,4 +79,3 @@ guac_rdpsnd_la_LDFLAGS = -module -avoid-version -shared
 freerdpdir = ${libdir}/freerdp/
 
 EXTRA_DIST = LICENSE
-
